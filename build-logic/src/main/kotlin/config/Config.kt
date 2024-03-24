@@ -3,7 +3,7 @@ package config
 import org.gradle.api.JavaVersion
 
 object Config {
-    const val applicationId = "dev.theolm.filelogwriter"
+    const val applicationId = "dev.theolm.log.ext"
     const val minSdk = 22
     const val targetSdk = 34
     const val compileSdk = 34

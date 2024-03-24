@@ -2,7 +2,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import co.touchlab.kermit.Logger
-import dev.theolm.filelogwriter.FileLogWriter
+import dev.theolm.txtlogwriter.TxtLogWriter
 
 
 
@@ -13,6 +13,6 @@ actual fun AddLogWriter() {
         val currentWorkingDir = System.getProperty("user.dir")
         val filePath = "$currentWorkingDir/$TestFile"
         println(readFile(filePath))
-        Logger.addLogWriter(FileLogWriter(filePath))
+        Logger.addLogWriter(TxtLogWriter(filePath))
     }
 }

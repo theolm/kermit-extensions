@@ -1,4 +1,4 @@
-package dev.theolm.filelogwriter
+package dev.theolm.txtlogwriter
 
 import co.touchlab.kermit.Severity
 

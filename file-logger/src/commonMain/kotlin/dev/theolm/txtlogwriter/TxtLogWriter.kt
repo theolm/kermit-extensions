@@ -1,10 +1,10 @@
-package dev.theolm.filelogwriter
+package dev.theolm.txtlogwriter
 
 import co.touchlab.kermit.LogWriter
 import co.touchlab.kermit.Severity
 
 
-class FileLogWriter(
+class TxtLogWriter(
     private val filePath: String,
     private val config: LogWriterConfig = LogWriterConfig()
 ) : LogWriter() {

@@ -1,4 +1,4 @@
-package dev.theolm.filelogwriter
+package dev.theolm.txtlogwriter
 
 import java.io.File
 import java.io.FileOutputStream

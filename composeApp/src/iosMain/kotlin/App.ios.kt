@@ -1,6 +1,6 @@
 import androidx.compose.runtime.Composable
 import co.touchlab.kermit.Logger
-import dev.theolm.filelogwriter.FileLogWriter
+import dev.theolm.txtlogwriter.TxtLogWriter
 import platform.Foundation.NSDocumentDirectory
 import platform.Foundation.NSSearchPathForDirectoriesInDomains
 import platform.Foundation.NSUserDomainMask
@@ -14,5 +14,5 @@ actual fun AddLogWriter() {
     val file = readFile(path)
     println("File contents: $file")
 
-    Logger.addLogWriter(FileLogWriter(path))
+    Logger.addLogWriter(TxtLogWriter(path))
 }

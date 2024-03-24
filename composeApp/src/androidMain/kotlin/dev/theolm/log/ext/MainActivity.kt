@@ -1,4 +1,4 @@
-package dev.theolm.filelogwriter
+package dev.theolm.log.ext
 
 import App
 import android.os.Bundle

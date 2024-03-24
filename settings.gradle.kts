@@ -1,4 +1,4 @@
-rootProject.name = "filelogwriter"
+rootProject.name = "kermit-extensions"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
