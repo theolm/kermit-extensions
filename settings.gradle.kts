@@ -20,6 +20,6 @@ dependencyResolutionManagement {
 }
 
 include(
-    ":composeApp",
+    ":sample:composeApp",
     ":file-logger"
 )
