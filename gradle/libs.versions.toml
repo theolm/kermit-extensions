@@ -27,6 +27,7 @@ compose-plugin = { module = "org.jetbrains.compose:compose-gradle-plugin", versi
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-screenModel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
+gradleMavenPublish-gradlePlugin = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.ref = "mavenPublish" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
