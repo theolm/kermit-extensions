@@ -13,9 +13,14 @@ android {
 }
 
 kotlin {
+    explicitApi()
     sourceSets {
+        androidMain.dependencies {
+            implementation(libs.androidx.startup)
+        }
         commonMain.dependencies {
             implementation(libs.kermit)
+            implementation(libs.kotlin.datetime)
         }
     }
 }
