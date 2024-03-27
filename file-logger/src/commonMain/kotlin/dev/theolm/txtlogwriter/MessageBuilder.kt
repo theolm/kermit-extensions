@@ -2,12 +2,12 @@ package dev.theolm.txtlogwriter
 
 import co.touchlab.kermit.Severity
 
-interface MessageBuilder {
-    fun buildLogMessage(severity: Severity, message: String, tag: String): String
-    fun buildThrowableMessage(throwable: Throwable): String
+public interface MessageBuilder {
+    public fun buildLogMessage(severity: Severity, message: String, tag: String): String
+    public fun buildThrowableMessage(throwable: Throwable): String
 }
 
-internal class MessageBuilderImpl : MessageBuilder {
+internal class MessageBuilderDefault : MessageBuilder {
     override fun buildLogMessage(severity: Severity, message: String, tag: String): String =
         "[${severity.name}] $tag: $message\n"
 
