@@ -3,7 +3,8 @@ package dev.theolm.txtlogwriter
 import java.io.File
 
 
-internal actual fun getInternalDir(): String = System.getProperty("user.dir")
+internal actual fun getInternalDir(): String? =
+    runCatching { System.getProperty("user.dir") }.getOrNull()
 
 internal actual class FileWriter actual constructor(
     private val fileDir: String,
@@ -28,8 +29,8 @@ internal actual class FileWriter actual constructor(
 }
 
 public actual fun listLogFiles(dir: String): List<String> {
-    return File(dir).listFiles {
-        _, name -> name.endsWith(FileExt)
+    return File(dir).listFiles { _, name ->
+        name.endsWith(FileExt)
     }?.let {
         it.map { file -> file.name }
     }.orEmpty()

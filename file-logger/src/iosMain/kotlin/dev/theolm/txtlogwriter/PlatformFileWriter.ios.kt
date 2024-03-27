@@ -16,10 +16,10 @@ import platform.Foundation.seekToEndOfFile
 import platform.Foundation.writeData
 import platform.Foundation.writeToFile
 
-internal actual fun getInternalDir(): String {
+internal actual fun getInternalDir(): String? = runCatching {
     val paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true)
-    return (paths.first() as String)
-}
+    (paths.first() as String)
+}.getOrNull()
 
 @OptIn(ExperimentalForeignApi::class)
 @Suppress("CAST_NEVER_SUCCEEDS", "TooGenericExceptionCaught")

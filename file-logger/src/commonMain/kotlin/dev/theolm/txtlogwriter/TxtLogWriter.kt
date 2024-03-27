@@ -30,7 +30,7 @@ public class TxtLogWriter(
 
     private fun initFileWriter(): FileWriter? {
         val fileDir =
-            config.filePath ?: runCatching { getDefaultFileDir() }.getOrNull() ?: return null
+            config.filePath ?: getDefaultFileDir() ?: return null
         val fileName = config.fileName ?: getFileName()
 
         return FileWriter(fileDir, fileName)

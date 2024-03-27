@@ -5,9 +5,17 @@ import kotlinx.datetime.Clock
 internal const val LogDir = "/logs/"
 internal const val FileExt = ".txt"
 
-public fun getDefaultFileDir(): String = getInternalDir() + LogDir
+public fun getDefaultFileDir(): String? = getInternalDir()?.let { it + LogDir } ?: run {
+    println("Error opening application directory.")
+    null
+}
 
-public expect fun listLogFiles(dir: String = getDefaultFileDir()): List<String>
+public fun listLogFiles(): List<String> {
+    val dir = getDefaultFileDir() ?: return emptyList()
+    return listLogFiles(dir)
+}
+
+public expect fun listLogFiles(dir: String): List<String>
 
 internal expect class FileWriter(
     fileDir: String,
@@ -16,7 +24,7 @@ internal expect class FileWriter(
     internal fun writeToFile(text: String)
 }
 
-internal expect fun getInternalDir(): String
+internal expect fun getInternalDir(): String?
 
 internal fun getFileName(): String {
     val date = Clock.System.now()

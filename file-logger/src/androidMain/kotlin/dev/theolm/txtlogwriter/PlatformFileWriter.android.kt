@@ -5,7 +5,8 @@ import java.io.FileOutputStream
 import java.io.IOException
 
 
-internal actual fun getInternalDir(): String = applicationContext.filesDir.absolutePath
+internal actual fun getInternalDir(): String? =
+    runCatching { applicationContext.filesDir.absolutePath }.getOrNull()
 
 internal actual class FileWriter actual constructor(
     private val fileDir: String,
@@ -36,5 +37,6 @@ internal actual class FileWriter actual constructor(
 }
 
 public actual fun listLogFiles(dir: String): List<String> {
-    return File(dir).listFiles()?.filter { it.path.endsWith(FileExt) }?.map { it.name } ?: emptyList()
+    return File(dir).listFiles()?.filter { it.path.endsWith(FileExt) }?.map { it.name }
+        ?: emptyList()
 }
