@@ -12,6 +12,9 @@ jobs:
     timeout-minutes: 60
     steps:
 
+      - name: Set VERSION environment variable
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+
       - name: Fetch Sources
         uses: actions/checkout@v3
         with:
@@ -30,3 +33,4 @@ jobs:
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVENCENTRALPASSWORD }}
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNINGINMEMORYKEY }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNINGINMEMORYKEYPASSWORD }}
+          VERSION: ${{ env.VERSION }}

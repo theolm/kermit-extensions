@@ -29,7 +29,13 @@ kotlin {
 mavenPublishing {
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
     signAllPublications()
-    coordinates(Config.groupId, artifactId, Config.libVersion)
+
+    val version = System.getenv("VERSION") ?: Config.libVersion
+    coordinates(
+        groupId = Config.groupId,
+        artifactId = artifactId,
+        version = version
+    )
 
     pom {
         name.set("Txt Log Writer")
