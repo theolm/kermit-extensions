@@ -20,7 +20,7 @@ public class TxtLogWriter(
     private val config: Config = Config()
 ) : LogWriter() {
     private val logWriterScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
-    private val messageBuilder = config.messageBuilder
+    private val messageBuilder = config.customMessageBuilder ?: MessageBuilderDefault(config.linePrefix)
     private val fileWriter by lazy { initFileWriter() }
 
     override fun isLoggable(tag: String, severity: Severity): Boolean {
@@ -57,12 +57,13 @@ public class TxtLogWriter(
      * @param fileName: Name of the log file, if null the default name will be used (current date).
      * @param canWrite: Function that determines if a log message should be written to the file.
      * Useful for filtering logs and delay the creation of the log file.
-     * @param messageBuilder: Builder for the log message. Default is [MessageBuilderDefault].
+     * @param customMessageBuilder: Builder for the log message. Default is [MessageBuilderDefault].
      */
     public data class Config(
         val filePath: String? = null,
         val fileName: String? = null,
+        val linePrefix: LinePrefix = LinePrefix.DateTime,
         val canWrite: (tag: String, severity: Severity) -> Boolean = { _, _ -> true },
-        val messageBuilder: MessageBuilder = MessageBuilderDefault(),
+        val customMessageBuilder: MessageBuilder? = null,
     )
 }

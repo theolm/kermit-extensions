@@ -24,8 +24,8 @@ internal actual fun getInternalDir(): String? = runCatching {
 @OptIn(ExperimentalForeignApi::class)
 @Suppress("CAST_NEVER_SUCCEEDS", "TooGenericExceptionCaught")
 internal actual class FileWriter actual constructor(
-    private val fileDir: String,
-    private val fileName: String
+    fileDir: String,
+    fileName: String
 ) {
     private val file = fileDir + fileName
     private val fileManager = NSFileManager.defaultManager()
@@ -46,8 +46,8 @@ internal actual class FileWriter actual constructor(
     }
 
     internal actual fun writeToFile(text: String) {
+        val textToWrite = text as NSString
         if (!fileManager.fileExistsAtPath(file)) {
-            val textToWrite = text as NSString
             textToWrite.writeToFile(
                 file,
                 atomically = true,
@@ -57,7 +57,7 @@ internal actual class FileWriter actual constructor(
         } else {
             NSFileHandle.fileHandleForWritingAtPath(file)?.let {
                 it.seekToEndOfFile()
-                val data = (text as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+                val data = textToWrite.dataUsingEncoding(NSUTF8StringEncoding)
                 if (data != null) {
                     it.writeData(data)
                 }

@@ -22,7 +22,7 @@ fun App() {
         Logger.addLogWriter(
             TxtLogWriter(
                 config = TxtLogWriter.Config(
-                    canWrite = { _, _ -> canWrite.value }
+                    canWrite = { _, _ -> canWrite.value },
                 )
             )
         )
@@ -38,7 +38,7 @@ fun App() {
     LaunchedEffect(Unit) {
         scope.launch {
             repeat(100) {
-                Logger.d("Test log writer: $it")
+                Logger.d(messageString = "Test log writer: $it", tag = "TAG")
                 delay(500)
             }
         }
