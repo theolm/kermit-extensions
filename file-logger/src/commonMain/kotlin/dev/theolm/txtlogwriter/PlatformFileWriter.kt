@@ -30,4 +30,3 @@ internal fun getFileName(): String {
     val date = Clock.System.now()
     return date.toString() + FileExt
 }
-

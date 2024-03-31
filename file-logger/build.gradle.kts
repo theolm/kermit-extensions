@@ -4,6 +4,7 @@ import config.Config
 plugins {
     id("kmm-module-setup")
     id("publish-setup")
+    id("detekt-setup")
 }
 
 val artifactId = "txtlogwriter"

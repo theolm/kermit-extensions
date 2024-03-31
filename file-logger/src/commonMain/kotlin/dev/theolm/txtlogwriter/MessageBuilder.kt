@@ -14,7 +14,6 @@ internal class MessageBuilderDefault(
         return "${getTrimPrefix()}[${severity.name}] ${getTrimTag(tag)}$message\n"
     }
 
-
     override fun buildThrowableMessage(throwable: Throwable) =
         "\n${linePrefix.getPrefix()}${throwable.stackTraceToString()}\n"
 
@@ -22,5 +21,4 @@ internal class MessageBuilderDefault(
         if (linePrefix.getPrefix().isEmpty()) "" else "${linePrefix.getPrefix()} "
 
     private fun getTrimTag(tag: String) = if (tag.isEmpty()) "" else "[$tag] "
-
 }

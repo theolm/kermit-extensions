@@ -8,7 +8,6 @@ import kotlinx.coroutines.IO
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 
-
 /**
  * Kermit Log writer that writes log messages to a text file.
  * @param config: Configuration for the log writer. Default is [TxtLogWriter.Config].
