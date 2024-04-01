@@ -55,9 +55,9 @@ TxtLogWriter(
 
 Supported Line prefix:
 ```kt
-LinePrefix.None: Omits the prefix from log messages.
-LinePrefix.Date: Adds the date of the log entry as a prefix to messages.
-LinePrefix.Time: Adds the time of the log entry as a prefix to messages.
-LinePrefix.DateTime: Prefixes log messages with both the date and time of the entry.
-LinePrefix.Custom: Enables the use of a custom-defined prefix for log messages.
+LinePrefix.None // Omits the prefix from log messages.
+LinePrefix.Date // Adds the date of the log entry as a prefix to messages.
+LinePrefix.Time // Adds the time of the log entry as a prefix to messages.
+LinePrefix.DateTime // Prefixes log messages with both the date and time of the entry.
+LinePrefix.Custom // Enables the use of a custom-defined prefix for log messages.
 ```
