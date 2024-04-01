@@ -1,5 +1,9 @@
 # Kermit Extensions
 
+[![Maven Central](https://img.shields.io/maven-central/v/dev.theolm/txtlogwriter)](https://mvnrepository.com/artifact/dev.theolm)
+[![Kotlin](https://img.shields.io/badge/kotlin-1.9.23-blue.svg?logo=kotlin)](http://kotlinlang.org)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/theolm/kermit-extensions)
+
 Welcome to **Kermit Extensions**, a collection of utilities aimed at enhancing the debugging experience by leveraging the powerful logging API of [Kermit](https://github.com/touchlab/Kermit). This repository is home to custom extensions designed to make your development process smoother, more efficient, and ultimately more productive.
 
 ## About Kermit
